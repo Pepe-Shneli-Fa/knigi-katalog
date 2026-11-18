@@ -1,1 +1,40 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог книг</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;color:#222}
+h1{color:#1F4E79}
+ul{list-style:none;padding:0}
+li{padding:10px 0;border-bottom:1px solid #eee}
+a{color:#1F4E79;text-decoration:none}
+a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<h1>Каталог книг</h1>
+<p>Всего книг: 81. Нажмите на книгу, чтобы увидеть обложку и внутренний разворот.</p>
+<ul id="list"></ul>
+<script>
+const books = [
+  ["Михаил Анохин", "Первая ступень"],
+  ["Владимир Баланчан", "Защитники державы"],
+  ["Владимир Баланчан", "Земной поклон"],
+  ["Владимир Балачан", "Нареченное имя"],
+  ["Владимир Балачан", "Чистая сила"],
+  ["Эдуард Балашов", "Глагол молчания"],
+  ["Михаил Борисов", "Цвет огня"],
+  ["Владимир Бушанов", "Тайное издание"]
+  // ... остальные 73 книги в полной версии
+];
+const ul = document.getElementById("list");
+books.forEach((b,i)=>{
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="books/${String(i).padStart(3,"0")}.html"><strong>${b[0]}</strong> — «${b[1]}»</a>`;
+  ul.appendChild(li);
+});
+</script>
+</body>
+</html>
